@@ -5,7 +5,7 @@ Laravel version "5.8".
 ### Installation and configuration steps
 
  <pre> git@github.com:yomnamohamed93/laravel-movie-seeder.git </pre>   
- <pre>  cd laravel-movie-seeder </pre>
+ <pre>  cd Bellman-laravel-task </pre>
  <pre>  composer install </pre>
  <pre>  cp .env.example .env </pre>
  <pre> php artisan key:generate </pre>

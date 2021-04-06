@@ -23,6 +23,9 @@ Route::namespace('Admin')->prefix('admin')->middleware(['auth_admin'])->group(fu
     Route::get('/', 'AdminDashboardController@index')->name('admin.dashboard');
     Route::get('dashboard', 'AdminDashboardController@index');
     Route::resource('admins', 'AdminController');
+    Route::resource('shops', 'ShopController');
+    Route::resource('customers', 'CustomerController');
+
 });
 Route::prefix('admin')->middleware(['auth_admin'])->group(function () {
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');

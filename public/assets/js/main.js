@@ -96,46 +96,6 @@ $(document).ready(function () {
     });
 
     //-----------validate items uniqueness-----------//
-    //validate user uniqueness
-    $("#add-user-form, #edit-user-form").submit(function (e) {
-        $("#email-hint-result").hide();
-        $("#phone-hint-result").hide();
-        e.preventDefault();
-        let target_form = $(this);
-        //  check country name unique
-        let email = $("#user-email").val();
-        let phone = $("#user-phone").val();
-        let id = $("#user-email").attr('data-item-id');
-        $.ajax({
-            type: "GET",
-            url: BASE_URL + '/check_user_unique/',
-            data: {
-                'phone': phone,
-                'email': email,
-                "_token": $('#token').val(),
-                "item_id": id
-            },
-            success: function(data) {
-                if (data == 'valid') {
-                    if ($(target_form).validationEngine('validate')) $(target_form).unbind('submit').submit();
-                } else {
-                    switch (data) {
-                        case 'email_phone':
-                            $("#email-hint-result").show();
-                            $("#phone-hint-result").show();
-                            break;
-                        case 'email':
-                            $("#email-hint-result").show();
-                            break;
-                        case 'phone':
-                            $("#phone-hint-result").show();
-                            break;
-                    }
-                }
-            }
-        });
-
-    });
 
     //delete items
     $(document).on("click", 'button.delete_btn', function () {

@@ -13,7 +13,7 @@
         <div class="kt-portlet__head kt-portlet__head--lg">
             <div class="kt-portlet__head-label">
             <span class="kt-portlet__head-icon">
-                <i class="fa fa-user-tie"></i>
+                <i class="fa fa-users"></i>
             </span>
                 <h3 class="kt-portlet__head-title">
                      {{__($controller_name)}}
@@ -22,7 +22,7 @@
             <div class="kt-portlet__head-toolbar">
                 <div class="kt-portlet__head-wrapper">
                     <div class="dropdown dropdown-inline">
-                        <a href="{{route("admins.create")}}" class="btn btn-brand btn-icon-sm">
+                        <a href="{{route("customers.create")}}" class="btn btn-brand btn-icon-sm">
                             <i class="flaticon2-plus"></i>{{__("Add New")}}
                         </a>
                     </div>
@@ -31,12 +31,14 @@
         </div>
         <div class="kt-portlet__body">
             @include('layouts.partials.flash-message')
-            <table class="table table-striped- table-bordered table-hover table-checkable" id="admins_datatable">
+            <table class="table table-striped- table-bordered table-hover table-checkable" id="">
                 <thead>
                 <tr>
                     <th>{{__("ID")}}</th>
-                    <th>{{__("Name")}}</th>
+                    <th>{{__("Full name")}}</th>
                     <th>{{__("Email")}}</th>
+                    <th>{{__("Phone")}}</th>
+                    <th>{{__("Shop")}}</th>
                     <th>{{__("Creation date")}}</th>
                     <th>{{__("Actions")}}</th>
                 </tr>
@@ -45,15 +47,17 @@
                 @foreach($items as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->email}}</td>
+                        <td>{{$item->getFullNameAttribute()}}</td>
+                        <td>{{$item->email??"---"}}</td>
+                        <td>{{$item->phone??"---"}}</td>
+                        <td>{{$item->shop->name??"---"}}</td>
                         <td>{{$item->getFormattedCreationDate()}}</td>
                         <td>
                             <div class="row mx-auto">
-                                <a href="{{route("admins.edit",$item->id)}}" class="text-info mx-2" style="">
+                                <a href="{{route("customers.edit",$item->id)}}" class="text-info mx-2" style="">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
-                                <form class="delete_form" action="{{route("admins.destroy",$item->id)}}" method="post">
+                                <form class="delete_form" action="{{route("customers.destroy",$item->id)}}" method="post">
                                     @csrf
                                     {{ method_field('DELETE') }}
                                     <button class="delete_btn btn btn-sm text-danger" type="button"><i class="fas fa-trash-alt"></i></button>

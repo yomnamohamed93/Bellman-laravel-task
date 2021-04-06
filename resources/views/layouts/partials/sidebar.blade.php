@@ -68,7 +68,7 @@
                         </li>
                     @endif
                         <li class="kt-menu__item" aria-haspopup="true">
-                            <a href=""
+                            <a href="{{ route('shops.index') }}"
                                class="kt-menu__link ">
                             <span class="kt-menu__link-icon">
                                 <i class="fa fa-shopping-cart"></i>
@@ -77,7 +77,7 @@
                             </a>
                         </li>
                         <li class="kt-menu__item" aria-haspopup="true">
-                            <a href=""
+                            <a href="{{ route('customers.index') }}"
                                class="kt-menu__link ">
                         <span class="kt-menu__link-icon">
                             <i class="fa fa-users"></i>

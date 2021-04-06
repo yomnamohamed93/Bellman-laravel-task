@@ -19,7 +19,6 @@ class AdminController extends AdminBaseController
         parent::__construct($request);
         $this->current_controller = "Admins";
         view()->share('controller_name', $this->current_controller);
-        $this->uploads_path = '/assets/images/admins/';
     }
     /**
 
@@ -111,22 +110,6 @@ class AdminController extends AdminBaseController
     {
         $admin->delete();
         return redirect()->route('admins.index')->with('success', __('Administrator has been deleted successfully'));
-    }
-
-    private function image($request)
-    {
-        if (!is_dir(public_path() . $this->uploads_path)) {
-            mkdir(public_path() . $this->uploads_path, 755, true);
-        }
-
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            request()->validate([
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
-            $imageName = time() . '.' . request()->image->getClientOriginalExtension();
-            request()->image->move(public_path() . $this->uploads_path, $imageName);
-            return $imageName;
-        }
     }
 
 

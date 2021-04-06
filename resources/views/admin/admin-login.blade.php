@@ -29,15 +29,6 @@
 									<div class="input-group">
 										<input class="form-control validate[required] password-input" type="password" name="password" placeholder="{{__('Enter Password')}}" >
 									</div>
-									<div class="row kt-login__extra">
-										<div class="col">
-											<label class="kt-checkbox">
-												<input type="checkbox" name="remember_me"> {{__("Remember me")}}
-												<span></span>
-											</label>
-										</div>
-
-                                    </div>
                                     <div class="kt-login__actions">
 										<button id="kt_login_signin_submit" type="submit" class="btn btn-pill kt-login__btn-primary">{{__("Login")}}</button>
 									</div>

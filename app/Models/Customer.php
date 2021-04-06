@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 
 class Customer extends Authenticatable
 {
-    use HasApiTokens, Notifiable , SoftDeletes;
+    use  SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -22,40 +19,24 @@ class Customer extends Authenticatable
         'last_name',
         'email',
         'phone',
-        'country_id	',
-        'verification_code',
-        'password',
-        'avatar',
-        'gender',
+        'shop_id',
         'created_by',
         'updated_by'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    public function favouriteEvents()
+    public function shop()
     {
-        return $this->belongsToMany('App\Models\Event', 'event_favourite');
+        return $this->belongsTo(Shop::class);
     }
-    public function appliedEvents()
+    /**
+     * @param $value
+     * @return string
+     */
+    public function getFullNameAttribute()
     {
-        return $this->belongsToMany('App\Models\Event', 'event_user');
+        return $this->first_name . ' ' . $this->last_name;
     }
-
+    public function getFormattedCreationDate()
+    {
+        return date("d/m/Y", strtotime($this->created_at));
+    }
 }

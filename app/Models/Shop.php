@@ -2,35 +2,31 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Admin extends Authenticatable
+class Shop extends Model
 {
-    use  SoftDeletes;
-
-    protected $table = 'admins';
+    use SoftDeletes;
 
     public $timestamps = true;
 
     protected $dates = ['deleted_at'];
-
     protected $fillable = array(
         'name',
         'email',
-        'password',
-        'status',
-        'host_id',
-        'super_admin',
-        'account_type',
-        'remember_token',
+        'website',
+        'logo',
         'created_by',
         'updated_by'
     );
 
+    public function getLogoPathAttribute()
+    {
+        return asset('storage/shops/logos/'.$this->logo);
+    }
     public function getFormattedCreationDate()
     {
         return date("d/m/Y", strtotime($this->created_at));
     }
-
 }

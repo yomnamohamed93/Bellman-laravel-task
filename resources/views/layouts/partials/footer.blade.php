@@ -2,7 +2,7 @@
     <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
         <div class="kt-container  kt-container--fluid ">
             <div class="kt-footer__copyright">
-                {{__("Copyrights 2020, All Rights Reserved.")}}
+                {{__("Copyrights 2021, All Rights Reserved.")}}
             </div>
         </div>
     </div>

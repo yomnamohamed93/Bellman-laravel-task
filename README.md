@@ -19,3 +19,6 @@ Start the local development server
 
    <pre> php artisan serve </pre>
   
+You can access admin portal at:
+<pre> http://localhost:8000/admin </pre>
+**email: admin@admin.com and password: “password”

@@ -21,4 +21,5 @@ Start the local development server
   
 You can access admin portal at:
 <pre> http://localhost:8000/admin </pre>
-**email: admin@admin.com and password: “password”
+**Login credentials:** </br>
+email: admin@admin.com </br> password: password

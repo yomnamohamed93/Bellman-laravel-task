@@ -1,6 +1,6 @@
 # Bellman-laravel-task
 
-Laravel version "5.8".
+Laravel version "8.35.1".
 
 ### Installation and configuration steps
 
@@ -9,7 +9,6 @@ Laravel version "5.8".
  <pre>  composer install </pre>
  <pre>  cp .env.example .env </pre>
  <pre> php artisan key:generate </pre>
- In .env file change the value of **QUEUE_CONNECTION** to **database** . </br>
 
 Run the migrations and seeding (**Please note to set database connection in .env file**)
  <pre> php artisan migrate </pre>  

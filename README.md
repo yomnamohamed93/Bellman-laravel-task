@@ -4,7 +4,7 @@ Laravel version "8.35.1".
 
 ### Installation and configuration steps
 
- <pre> git@github.com:yomnamohamed93/laravel-movie-seeder.git </pre>   
+ <pre> git@github.com:yomnamohamed93/Bellman-laravel-task.git </pre>   
  <pre>  cd Bellman-laravel-task </pre>
  <pre>  composer install </pre>
  <pre>  cp .env.example .env </pre>
